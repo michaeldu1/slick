@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AppNavbar from './components/AppNavBar';
-import ShoppingList from './components/ShoppingList';
-import ItemModal from './components/ItemModal';
+import NewsFeed from './components/NewsFeed';
+import UploadPostModal from './components/UploadPostModal';
 import { Container } from 'reactstrap';
 
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/authActions'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
-function App() {
-  return (
-    <Provider store={store}>
-      <div className="App">
-        <AppNavbar/>
-        <Container>
-          <ItemModal />
-          <ShoppingList/>
-        </Container>
+class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
 
-
-      </div>
-    </Provider>
-  );
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <AppNavbar/>
+          <Container>
+            <UploadPostModal />
+            <NewsFeed/>
+          </Container>
+  
+  
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;

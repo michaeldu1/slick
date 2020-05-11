@@ -1,9 +1,26 @@
 .remove-btn{
     margin-right: 0.5rem;
+    float: right;
+}
+
+.images{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .fade-enter{
     opacity: 0.01;
+}
+
+.descr{
+    margin-left: 2;
+    font-size: 80%;
+}
+
+.like-button{
+    color: #6e757c;
 }
 
 .fade-enter-active{
